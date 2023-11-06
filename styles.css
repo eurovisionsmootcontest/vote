@@ -29,8 +29,9 @@
   --color-white: white;
   --color-gray: #ccc;
   --color-blue: #0043ff;
-  --color-red: #ff0087;
-  --color-red-hovered: #ff4aab;
+  --color-red: red;
+  --color-rose: #ff0087;
+  --color-rose-hovered: #ff4aab;
   --color-yellow: #fff800;
   --color-alert-warning: #fbbd23;
 }
@@ -200,7 +201,7 @@ nav.header {
 }
 
 .information span {
-  color: var(--color-red);
+  color: var(--color-rose);
 }
 
 .confirm {
@@ -208,7 +209,7 @@ nav.header {
 }
 
 .confirm-button {
-  background-color: var(--color-red);
+  background-color: var(--color-rose);
   border: 0;
   border-radius: 100px;
   padding: 20px;
@@ -221,7 +222,7 @@ nav.header {
 }
 
 .confirm-button:hover {
-  background-color: var(--color-red-hovered);
+  background-color: var(--color-rose-hovered);
 }
 
 .vote-number {
@@ -236,7 +237,7 @@ nav.header {
 }
 
 .error-message {
-  color: red;
+  color: var(--color-red);
 }
 
 .success-message {
@@ -316,7 +317,7 @@ nav.header {
 .number {
   font-family: "Penny Lane";
   font-size: 30px;
-  color: var(--color-red);
+  color: var(--color-rose);
   vertical-align: middle;
 }
 
@@ -325,6 +326,18 @@ nav.header {
   font-size: 20px;
   color: var(--color-black);
   vertical-align: middle;
+}
+
+.ytb {
+  margin-left: .5em;
+}
+
+.fa-youtube {
+  color: var(--color-red);
+}
+
+.fa-youtube:hover {
+  color: var(--color-rose-hovered);
 }
 
 /* ---------------------------------- VOTING BUTTONS ----------------------------------  */
@@ -339,7 +352,7 @@ nav.header {
 
 .vote-button {
   width: 90%;
-  background-color: var(--color-red);
+  background-color: var(--color-rose);
   border: 0;
   border-radius: 10px;
   padding: 20px;
@@ -351,7 +364,7 @@ nav.header {
 }
 
 .vote-button:hover {
-  background-color: var(--color-red-hovered);
+  background-color: var(--color-rose-hovered);
 }
 
 .vote-count {
