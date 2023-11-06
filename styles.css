@@ -250,7 +250,7 @@ nav.header {
   display: grid;
   flex-direction: row;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-gap: 25px;
   margin: 50px;
 }
 
