@@ -1,0 +1,381 @@
+@font-face {
+  font-family: "Penny Lane";
+  src: url("fonts/PennyLane.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Penny Lane";
+  font-weight: bold;
+  src: url("fonts/PennyLaneBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Penny Lane";
+  font-style: italic;
+  src: url("fonts/PennyLaneItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Penny Lane";
+  font-weight: bold;
+  font-style: italic;
+  src: url("fonts/PennyLaneBoldItalic.otf") format("opentype");
+}
+
+:root {
+  --color-bg: #02025e;
+  --color-header: #3e3584;
+  --color-black: black;
+  --color-white: white;
+  --color-gray: #ccc;
+  --color-blue: #0043ff;
+  --color-red: #ff0087;
+  --color-red-hovered: #ff4aab;
+  --color-yellow: #fff800;
+  --color-alert-warning: #fbbd23;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+/* ---------------------------------- ABOUT TAB ----------------------------------  */
+
+#about-tab {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  transition: opacity .5s ease-in-out;
+  pointer-events: none; /* Désactiver les événements de souris par défaut */
+}
+
+#about-tab.active {
+  pointer-events: auto; /* Activer les événements de souris lorsque actif (opacity: 1) */
+  opacity: 1;
+}
+
+#close-about-tab {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 26px;
+  color: var(--color-blue);
+}
+
+#about-text {
+  background-color: white;
+  padding: 2%;
+  max-width: 60%;
+}
+
+#about-text h1 {
+  display: flex;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-blue);
+  justify-content: space-between;
+}
+
+#about-text p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#about-text p {
+  margin-top: 15px;
+}
+
+#about-text a {
+  color: var(--color-blue);
+  font-weight: bold;
+}
+
+
+/* ---------------------------------- ALERT ----------------------------------  */
+
+.alert {
+  align-content: flex-start;
+  align-items: center;
+  background-color: var(--color-alert-warning);
+  border-radius: var(--rounded-box,1rem);
+  border-width: 1px;
+  color: var(--color-black);
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: row;
+  justify-items: center;
+  padding: 1rem;
+  text-align: center;
+  margin: 50px;
+}
+
+@media (min-width: 640px) {
+  .alert {
+    grid-auto-flow: column;
+    grid-template-columns: auto minmax(auto,1fr);
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+.alert span {
+  font-family: Nunito,sans-serif;
+  font-weight: 500;
+}
+
+.stroke-current {
+  stroke: currentColor;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ---------------------------------- NAVIGATION ----------------------------------  */
+
+nav {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-header);
+  top: 0px;
+  justify-content: space-between;
+}
+
+nav.header {
+  height: 80px;
+}
+
+.logo-click , .logo {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ---------------------------------- INFORMATION ----------------------------------  */
+
+.information {
+  width: fit-content;
+  margin: 50px;
+  padding: 30px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.information h1 {
+  /* font-size: 25px; */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-black);
+  padding-bottom: 20px;
+}
+
+.information h2 {
+  /* font-size: 20px; */
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-black);
+  margin-bottom: 20px;
+}
+
+.information span {
+  color: var(--color-red);
+}
+
+.confirm {
+  padding-top: 20px;
+}
+
+.confirm-button {
+  background-color: var(--color-red);
+  border: 0;
+  border-radius: 100px;
+  padding: 20px;
+  width: fit-content;
+  cursor: pointer;
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 0;
+}
+
+.confirm-button:hover {
+  background-color: var(--color-red-hovered);
+}
+
+.vote-number {
+  margin-left: 10px;
+}
+
+.msg-error {
+  display: none;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.error-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+
+/* ---------------------------------- GRID ----------------------------------  */
+
+.grid-container {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 50px;
+}
+
+@media (min-width: 500px) {
+  .grid-container { grid-template-columns: repeat(1, 1fr); }
+}
+
+@media (min-width: 800px) {
+  .grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .grid-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1300px) {
+  .grid-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------------------------------- BOX ----------------------------------  */
+
+.participant-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--color-gray);
+  border-radius: 10px;
+  text-align: center;
+  background-color: var(--color-white);
+}
+  
+.participant-box img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.participant-box .participant-details {
+  width: 100%;
+  border-bottom: solid 1px var(--color-gray);
+}
+
+.participant-box .participant-details p {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+  font-size: 1.25rem;
+  box-sizing: border-box;
+}
+
+.participant-box .participant-details p:first-child {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+.participant-box .participant-details p:last-child { 
+  padding-bottom: 20px;
+  font-weight: 500;
+}
+
+.number {
+  font-family: "Penny Lane";
+  font-size: 30px;
+  color: var(--color-red);
+  vertical-align: middle;
+}
+
+.text {
+  font-family: "Penny Lane";
+  font-size: 20px;
+  color: var(--color-black);
+  vertical-align: middle;
+}
+
+/* ---------------------------------- VOTING BUTTONS ----------------------------------  */
+
+.vote-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.vote-button {
+  width: 90%;
+  background-color: var(--color-red);
+  border: 0;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  color: var(--color-white);
+  font-size: 20px;
+  font-family: monospace;
+  line-height: 0;
+}
+
+.vote-button:hover {
+  background-color: var(--color-red-hovered);
+}
+
+.vote-count {
+  font-family: "Penny Lane";
+}
+
+/* ---------------------------------- FOOTER ----------------------------------  */
+
+nav.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+}
+
+.footer a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.footer a:hover {
+  color: var(--color-gray)
+}

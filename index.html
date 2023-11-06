@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Voting • Eurovision Smoot Contest 2024</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="about-tab" style="opacity: 0">
+        <div id="about-text">
+            <h1>About Voting<span id="close-about-tab">&times;</span></h1>
+            <p>TEST FR</p>
+            <p>TEST EN</p>
+        </div>
+    </div>
+
+    <nav class="header">
+        <a class="logo-click" href="."><img class="logo" src="/imgs/logo_white.png" alt=""></a>
+    </nav>
+
+    <!-- <div class="alert alert-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        <span>Warning Message</span>
+    </div> -->
+
+    <div class="information">
+        <h1>Eurovision Smoot Contest 2024 • Voting Round 1</h1>
+
+        <h2>Bienvenue sur le système de vote de l'Eurovision Smoot Contest 2024.
+            <br>1. Pour voter, répartissez <span>12 votes</span> selon votre/vos performance(s) favorite(s).
+            <br>2. Une fois cela fait, confirmez votre vote en appuyant sur le bouton "<b>Vote!</b>" ci-dessous. 
+        </h2>
+
+        <h2>Welcome to the Eurovision Smoot Contest 2024 voting system.
+            <br>1. To vote, distribute <span>12 votes</span> according to your favorite performance(s).
+            <br>2. Once done, confirm your vote by pressing the "<b>Vote!</b>" button below.
+        </h2>
+
+        <div class="confirm">
+            <button class="confirm-button" onclick="confirmVotes()">Vote!</button>
+            <span class="vote-number"><span id="totalVotesSpan">0</span> / 12 votes</span>
+        </div>
+        <h3 class="msg-error"></h3>
+    </div>
+
+    <div class="grid-container" id="participantsGrid"></div>
+
+    <nav class="footer">
+        <a href="https://www.youtube.com/@eurovisionsmootcontest" target="_blank">YouTube</a>
+        <a href="https://docs.google.com/document/d/e/2PACX-1vQl7JnScRznlvZ7ApqsLBO9TbW0omhhHDNU2HQPNiSRuwdqLHzZhjQUSmlaE-6CAb_fWhFp49D-3Rzp/pub" target="_blank">Terms & Conditions</a>
+        <a href="#" onclick="aboutVoting()">About Voting</a>
+    </nav>
+
+    <script src="js/confirmVotes.js"></script>
+    <script src="js/aboutVoting.js"></script>
+
+</body>
+
+</html>
