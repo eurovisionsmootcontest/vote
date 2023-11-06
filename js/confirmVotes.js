@@ -30,18 +30,18 @@
   // ];
 
   const participants = [
-    { name: '01 | United Kingdom', song: 'Harry - Run To The Hills', image: 'imgs/AnnounceUK.png' },
-    { name: '02 | France', song: 'Remskey - BLECHE', image: 'imgs/AnnounceFR.png' },
-    { name: '03 | Luxembourg', song: 'Karla - Set Me Free', image: 'imgs/AnnounceLU.png' },
-    { name: '04 | Ireland', song: 'Lizzie Lasmoothoise - Ils fumaient', image: 'imgs/AnnounceIE.png' },
-    { name: '05 | United States', song: 'soso.252 - After Glow', image: 'imgs/AnnounceUS.png' },
-    { name: '06 | Netherlands', song: 'Amiral - Pure', image: 'imgs/AnnounceNL.png' },
-    { name: '07 | Poland', song: 'Wilk - Stay In Your Cage', image: 'imgs/AnnouncePL.png' },
-    { name: '08 | Canada', song: 'Noah - Kona', image: 'imgs/AnnounceCA.png' },
-    { name: '09 | Belgium', song: 'Aziourty - Rollercoaster', image: 'imgs/AnnounceBE.png' },
-    { name: '10 | Norway', song: 'DjRedstone - Silence', image: 'imgs/AnnounceNO.png' },
-    { name: '11 | Germany', song: 'Waydrix - In Truth Divided', image: 'imgs/AnnounceDE.png' },
-    { name: '12 | Italy', song: 'BlueCooKies6014 - Pompeii', image: 'imgs/AnnounceIT.png' }
+    { name: '01 | United Kingdom', song: 'Harry - Run To The Hills', image: 'imgs/AnnounceUK.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '02 | France', song: 'Remskey - BLECHE', image: 'imgs/AnnounceFR.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '03 | Luxembourg', song: 'Karla - Set Me Free', image: 'imgs/AnnounceLU.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '04 | Ireland', song: 'Lizzie Lasmoothoise - Ils fumaient', image: 'imgs/AnnounceIE.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '05 | United States', song: 'soso.252 - After Glow', image: 'imgs/AnnounceUS.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '06 | Netherlands', song: 'Amiral - Pure', image: 'imgs/AnnounceNL.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '07 | Poland', song: 'Wilk - Stay In Your Cage', image: 'imgs/AnnouncePL.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '08 | Canada', song: 'Noah - Kona', image: 'imgs/AnnounceCA.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '09 | Belgium', song: 'Aziourty - Rollercoaster', image: 'imgs/AnnounceBE.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '10 | Norway', song: 'DjRedstone - Silence', image: 'imgs/AnnounceNO.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '11 | Germany', song: 'Waydrix - In Truth Divided', image: 'imgs/AnnounceDE.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' },
+    { name: '12 | Italy', song: 'BlueCooKies6014 - Pompeii', image: 'imgs/AnnounceIT.png', video: 'https://www.youtube.com/watch?v=V5gGPs3wSS4' }
   ];
   
   // Grille
@@ -59,7 +59,7 @@
     participantDetails.classList.add('participant-details');
     participantDetails.innerHTML = `
       <p>${participant.name}</p>
-      <p>${participant.song}</p>
+      <p>${participant.song}<a class="ytb" href="${participant.video}" target="_blank"><i class="fa-brands fa-youtube"></i></a></p>
     `;
     participantBox.appendChild(participantDetails);
   
@@ -159,7 +159,18 @@
       zeroVoteBoxes.forEach(box => {
         const votes = parseInt(box.innerText);
         if (votes === 0) {
-          box.closest('.participant-box').style.opacity = '0.5'; // Réduire l'opacité .5 des pays non-sélectionnés
+
+          // Opacité 0.5 aux pays non-sélectionnés
+          const boxParent = box.closest('.participant-box');
+          boxParent.style.opacity = '0.5';
+
+          // Opacité 0.5 aux boutons Down
+          const oddButtons = boxParent.querySelectorAll('.vote-button:nth-child(odd)');
+          oddButtons.forEach(button => {
+              button.disabled = true;
+              button.style.cursor = 'not-allowed';
+              button.style.opacity = '0.5';
+          });
         }
       });
     }
@@ -176,9 +187,25 @@
     const msgError = document.querySelector('.msg-error');
     msgError.style.display = "none";
     if (totalVotes < 12) {
+
+      // Remettre Opacité 1 aux pays non-sélectionnés
       const participantBoxes = document.querySelectorAll('.participant-box');
       participantBoxes.forEach(box => {
-        box.style.opacity = '1'; // Remettre l'opacité 1 des pays non-sélectionnés
+        box.style.opacity = '1';
+      });
+
+      // Remettre Opacité 1 aux boutons Down
+      const zeroVoteBoxes = document.querySelectorAll('.vote-count .number');
+      zeroVoteBoxes.forEach(box => {
+          const votes = parseInt(box.innerText);
+          if (votes === 0) {
+              const oddButtons = box.closest('.participant-box').querySelectorAll('.vote-button:nth-child(odd)');
+              oddButtons.forEach(button => {
+                  button.disabled = false;
+                  button.style.cursor = 'pointer';
+                  button.style.opacity = '1';
+              });
+          }
       });
     }
   }
