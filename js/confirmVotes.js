@@ -192,7 +192,7 @@
       msgError.style.display = "block";
       msgError.innerText = "Error : Il doit y avoir un total de 12 votes / There must be a total of 12 votes.";
     } else {
-      // Effectuer ici l'envoi des votes via une requête HTTP (non implémentée ici)
+      // Envoi des votes HTTP / AJAX / PHP
       console.log("Votes confirmés !");
       msgError.classList.remove('error-message');
       msgError.classList.add('success-message');
